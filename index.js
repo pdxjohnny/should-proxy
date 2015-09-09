@@ -97,11 +97,16 @@ function getNoProxy(options) {
 function matchNoProxy(requestUrl, no_proxy) {
   var parsedUrl = url.parse(requestUrl);
   var hostname = parsedUrl.hostname;
+  // If the hostname is null then dont proxy, we cant check
+  if (hostname == null) {
+    return false;
   // If the hostname is the no_proxy then its a match
-  if (hostname === no_proxy) {
+  } else if (hostname === no_proxy) {
     return true;
+  // If the ip matches a no_proxy subnet
   } else if (matchNetwork(hostname, no_proxy)) {
     return true;
+  // If the host matches a domain / subdomain
   } else if (matchDomain(hostname, no_proxy)) {
     return true;
   }
