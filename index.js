@@ -83,7 +83,7 @@ function matchNetwork(ip, network) {
 }
 
 function getNoProxy(options) {
-  var no_proxy = false;
+  var no_proxy = "";
   if (typeof options !== "undefined") {
     if (typeof options["no_proxy"] !== "undefined") {
       no_proxy = options["no_proxy"];
@@ -112,7 +112,7 @@ function shouldProxy(requestUrl, options) {
   // Get the no_proxy list
   var no_proxy = getNoProxy(options);
   // There is no no_proxy list so proxy everything
-  if (!no_proxy) {
+  if (no_proxy.length < 1) {
     return true;
   }
   // There is a no_proxy list so check if this should be proxied
