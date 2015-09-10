@@ -100,13 +100,13 @@ function matchNoProxy(requestUrl, no_proxy) {
   // If the hostname is null then dont proxy, we cant check
   if (hostname == null) {
     return false;
-  // If the hostname is the no_proxy then its a match
+    // If the hostname is the no_proxy then its a match
   } else if (hostname === no_proxy) {
     return true;
-  // If the ip matches a no_proxy subnet
+    // If the ip matches a no_proxy subnet
   } else if (matchNetwork(hostname, no_proxy)) {
     return true;
-  // If the host matches a domain / subdomain
+    // If the host matches a domain / subdomain
   } else if (matchDomain(hostname, no_proxy)) {
     return true;
   }
@@ -117,7 +117,7 @@ function shouldProxy(requestUrl, options) {
   // Get the no_proxy list
   var no_proxy = getNoProxy(options);
   // There is no no_proxy list so proxy everything
-  if (no_proxy.length < 1) {
+  if (no_proxy.length < 1 || no_proxy[0].length < 1) {
     return true;
   }
   // There is a no_proxy list so check if this should be proxied

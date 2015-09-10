@@ -16,6 +16,9 @@
     "no_proxy",
     "no-proxy"
   ],
+  "devDependencies": {
+    "expect.js": "~0.2.0"
+  },
   "author": "John Andersen",
   "license": "MIT",
   "bugs": {
