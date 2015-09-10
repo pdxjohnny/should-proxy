@@ -1,6 +1,6 @@
 {
   "name": "should-proxy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Checks if a url should be proxied",
   "main": "index.js",
   "scripts": {
